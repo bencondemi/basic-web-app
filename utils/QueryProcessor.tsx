@@ -9,7 +9,7 @@ export default function QueryProcessor(query: string): string {
     return (
       "My Andrew ID is bcondemi."
     );
-  } else if (query.toLowerCase().includes("what is your name?")) {
+  } else if (query.toLowerCase().includes("name")) {
     return (
       "My name is benvic "
     )
