@@ -14,12 +14,22 @@ export default function QueryProcessor(query: string): string {
       "benvic "
     )
   } else if (query.toLowerCase().includes("plus")) {
-    const match = query.toLowerCase().match(/what is (\d+) plus (\d+)/);
+    const match = query.toLowerCase().match(/What is (\d+) plus (\d+)\?/);
     if (match) {
-      const num1 = parseInt(match[1], 10);
-      const num2 = parseInt(match[2], 10);
+      const num1 = parseInt(match[1]);
+      const num2 = parseInt(match[2]);
       const sum = num1 + num2;
-      return `The answer is ${sum}.`;
+      return `${sum}`;
+    }
+
+  } else if (query.toLowerCase().includes("which of the following")) {
+    const match = query.toLowerCase().match(/Which of the following numbers is the largest: (\d+), (\d+), (\d+)\?/);
+    if (match) {
+      const num1 = parseInt(match[1]);
+      const num2 = parseInt(match[2]);
+      const num3 = parseInt(match[3]);
+      const max = Math.max(num1, num2, num3);
+      return `${max}`;
     }
   }
 
