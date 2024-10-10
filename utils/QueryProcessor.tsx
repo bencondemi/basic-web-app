@@ -13,31 +13,16 @@ export default function QueryProcessor(query: string): string {
     return (
       "benvic "
     )
-  } else if(query.toLowerCase().includes("numbers")) {
-    return (
-      "74"
-    )
-  } else if(query.toLowerCase().includes("6 plus 89")) {
-    return (
-      "95"
-    )
-  } else if (query.toLowerCase().includes("6 plus 65")) {
-    return (
-      "71"
-    )
-  } else if (query.toLowerCase().includes("11 plus 61")) {
-    return (
-      "72"
-    )
-  } else if (query.toLowerCase().includes("55 plus 20")) {
-    return (
-      "75"
-    )
-  } else if (query.toLowerCase().includes("52 plus 50")) {
-    return (
-      "72"
-    )
+  } else if (query.toLowerCase().includes("plus")) {
+    const match = query.toLowerCase().match(/what is (\d+) plus (\d+)/);
+    if (match) {
+      const num1 = parseInt(match[1], 10);
+      const num2 = parseInt(match[2], 10);
+      const sum = num1 + num2;
+      return `The answer is ${sum}.`;
+    }
   }
+
 
   return "";
 }
